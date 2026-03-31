@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BattleStream — Hearthstone Battlegrounds Stat Tracker</title>
+  <meta name="description" content="Real-time Hearthstone Battlegrounds stat tracker with live TUI, web dashboard, and streaming overlays. Track placements, hero performance, buff sources, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient background layers -->
+  <div class="bg-grain"></div>
+  <div class="bg-glow bg-glow--top"></div>
+  <div class="bg-glow bg-glow--bottom"></div>
+
+  <nav class="nav">
+    <a href="#" class="nav__logo">
+      <span class="nav__logo-icon">&#9876;</span>
+      <span class="nav__logo-text">BattleStream</span>
+    </a>
+    <div class="nav__links">
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/beeblebrox/battlestream" class="nav__gh" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__badge">Hearthstone Battlegrounds</div>
+    <h1 class="hero__title">
+      <span class="hero__title-line">Battle</span><span class="hero__title-line hero__title-line--accent">Stream</span>
+    </h1>
+    <p class="hero__sub">
+      Real-time stat tracking, live dashboards, and streaming overlays.<br>
+      Know your numbers. Climb the ladder.
+    </p>
+    <div class="hero__actions">
+      <a href="#install" class="btn btn--primary">Install Now</a>
+      <a href="https://github.com/beeblebrox/battlestream" class="btn btn--ghost" target="_blank" rel="noopener">View Source</a>
+    </div>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-number">11</span>
+        <span class="hero__stat-label">Interactive Charts</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">4</span>
+        <span class="hero__stat-label">API Protocols</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">3</span>
+        <span class="hero__stat-label">Platforms</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="features" id="features">
+    <h2 class="section__title">Everything You Need to Dominate</h2>
+    <div class="features__grid">
+
+      <div class="feature-card">
+        <div class="feature-card__icon">&#128200;</div>
+        <h3 class="feature-card__title">Real-Time Parsing</h3>
+        <p class="feature-card__text">Monitors Power.log in real time. Tracks health, armor, spell power, triples, tavern tier, board state, and all 13 HDT buff source counters.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon">&#127918;</div>
+        <h3 class="feature-card__title">Duos Support</h3>
+        <p class="feature-card__text">Full partner tracking — hero, tier, triples, and last-seen board. Every chart is duos-aware with player/partner/paired tabs.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon">&#128187;</div>
+        <h3 class="feature-card__title">Live TUI Dashboard</h3>
+        <p class="feature-card__text">Rich terminal interface with live game data, buff breakdowns, and one-key browser launch. Mouse-scrollable panels with resizable columns.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon">&#127760;</div>
+        <h3 class="feature-card__title">Web Dashboard</h3>
+        <p class="feature-card__text">11 interactive ECharts — placement trends, hero performance, heatmaps, buff analysis, tribe win rates. Filter by mode, game count, date range.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon">&#128225;</div>
+        <h3 class="feature-card__title">Streaming Ready</h3>
+        <p class="feature-card__text">Atomic JSON file output for OBS browser sources and StreamDeck plugins. WebSocket and SSE for live event streaming to any overlay.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon">&#128268;</div>
+        <h3 class="feature-card__title">Multi-Protocol API</h3>
+        <p class="feature-card__text">gRPC, REST, WebSocket, and SSE. Build custom integrations, overlays, bots, or analysis tools against a comprehensive API surface.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="screenshots" id="screenshots">
+    <h2 class="section__title">See It in Action</h2>
+    <div class="screenshots__grid">
+      <figure class="screenshot" data-label="Web Dashboard">
+        <img src="images/dashboard-overview.png" alt="BattleStream web dashboard with placement trends, hero performance, heatmaps, and buff analysis" loading="lazy">
+      </figure>
+      <figure class="screenshot" data-label="Live TUI (Duos)">
+        <img src="images/tui-duos.png" alt="BattleStream TUI showing a duos game with partner board and buff sources" loading="lazy">
+      </figure>
+      <figure class="screenshot screenshot--wide" data-label="Buff Source Heatmap">
+        <img src="images/buff-source-breakdown.png" alt="Buff source breakdown heatmap showing per-game buff distribution" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="install" id="install">
+    <h2 class="section__title">Get Started in Seconds</h2>
+    <div class="install__grid">
+
+      <div class="install__card">
+        <h3 class="install__card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Homebrew
+        </h3>
+        <p class="install__card-plat">macOS &amp; Linux</p>
+        <div class="code-block">
+          <button class="code-block__copy" aria-label="Copy" onclick="copyCode(this)">Copy</button>
+          <pre><code>brew tap beeblebrox/tap
+brew install battlestream</code></pre>
+        </div>
+      </div>
+
+      <div class="install__card">
+        <h3 class="install__card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          Scoop
+        </h3>
+        <p class="install__card-plat">Windows</p>
+        <div class="code-block">
+          <button class="code-block__copy" aria-label="Copy" onclick="copyCode(this)">Copy</button>
+          <pre><code>scoop bucket add battlestream https://github.com/beeblebrox/scoop-bucket
+scoop install battlestream</code></pre>
+        </div>
+      </div>
+
+      <div class="install__card">
+        <h3 class="install__card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Binary
+        </h3>
+        <p class="install__card-plat">All platforms</p>
+        <div class="code-block">
+          <a href="https://github.com/beeblebrox/battlestream/releases" class="btn btn--small" target="_blank" rel="noopener">Download from Releases</a>
+        </div>
+      </div>
+
+      <div class="install__card">
+        <h3 class="install__card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          From Source
+        </h3>
+        <p class="install__card-plat">Go 1.25+</p>
+        <div class="code-block">
+          <button class="code-block__copy" aria-label="Copy" onclick="copyCode(this)">Copy</button>
+          <pre><code>git clone https://github.com/beeblebrox/battlestream
+cd battlestream && go build -o battlestream ./cmd/battlestream</code></pre>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="install__quickstart">
+      <h3>Then run it</h3>
+      <div class="code-block code-block--large">
+        <button class="code-block__copy" aria-label="Copy" onclick="copyCode(this)">Copy</button>
+        <pre><code><span class="code-comment"># Discover your Hearthstone install</span>
+battlestream discover
+
+<span class="code-comment"># Start the daemon</span>
+battlestream daemon
+
+<span class="code-comment"># Open the TUI in another terminal</span>
+battlestream tui
+
+<span class="code-comment"># Or open the web dashboard</span>
+open http://localhost:8080/dashboard/</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo-icon">&#9876;</span> BattleStream
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/beeblebrox/battlestream" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/beeblebrox/battlestream/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/beeblebrox/battlestream/blob/main/docs/API.md" target="_blank" rel="noopener">API Docs</a>
+      </div>
+      <p class="footer__copy">Built for the Battlegrounds community.</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(btn) {
+      const code = btn.parentElement.querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+      });
+    }
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.feature-card, .screenshot, .install__card, .hero__stat').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+</body>
+</html>
