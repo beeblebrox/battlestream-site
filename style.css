@@ -199,6 +199,8 @@ body {
 
 .hero__stats {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 3rem;
   animation: fadeSlideDown 0.7s ease-out 0.45s both;
 }
@@ -430,6 +432,109 @@ body {
   transform: scale(1.02);
 }
 
+/* ---- Stream Deck ---- */
+
+.streamdeck {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem var(--gutter);
+}
+
+.streamdeck__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.screenshot--device {
+  background: transparent;
+  border: none;
+  border-radius: 18px;
+}
+
+.screenshot--device img {
+  border-radius: 18px;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.55));
+}
+
+.streamdeck__info {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.5s ease 0.12s;
+}
+
+.streamdeck__info.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streamdeck__lead {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.streamdeck__list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.streamdeck__list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.streamdeck__list li::before {
+  content: '\2726';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
+
+.streamdeck__list strong {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.streamdeck__steps {
+  margin: 0 0 1.5rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.streamdeck__steps li {
+  margin-bottom: 0.6rem;
+  line-height: 1.7;
+}
+
+.streamdeck__steps code,
+.streamdeck__list code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--gold);
+  background: rgba(212,168,67,0.07);
+  border: 1px solid rgba(212,168,67,0.12);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  word-break: break-all;
+}
+
+.streamdeck__steps a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.streamdeck__steps a:hover {
+  color: var(--gold-bright);
+}
+
 /* ---- Install ---- */
 
 .install {
@@ -654,6 +759,11 @@ body {
 
   .install__grid {
     grid-template-columns: 1fr;
+  }
+
+  .streamdeck__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .footer__inner {

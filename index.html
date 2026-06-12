@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BattleStream — Hearthstone Battlegrounds Stat Tracker</title>
-  <meta name="description" content="Real-time Hearthstone Battlegrounds stat tracker with live TUI, web dashboard, and streaming overlays. Track placements, hero performance, buff sources, and more.">
+  <meta name="description" content="Real-time Hearthstone Battlegrounds stat tracker with live TUI, web dashboard, Stream Deck plugin, and streaming overlays. Track placements, hero performance, buff sources, and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
     <div class="nav__links">
       <a href="#features">Features</a>
       <a href="#screenshots">Screenshots</a>
+      <a href="#streamdeck">Stream Deck</a>
       <a href="#install">Install</a>
       <a href="https://github.com/beeblebrox/battlestream" class="nav__gh" target="_blank" rel="noopener">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -48,8 +49,12 @@
     </div>
     <div class="hero__stats">
       <div class="hero__stat">
-        <span class="hero__stat-number">11</span>
+        <span class="hero__stat-number">20</span>
         <span class="hero__stat-label">Interactive Charts</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">34</span>
+        <span class="hero__stat-label">Stream Deck Actions</span>
       </div>
       <div class="hero__stat">
         <span class="hero__stat-number">4</span>
@@ -87,13 +92,13 @@
       <div class="feature-card">
         <div class="feature-card__icon">&#127760;</div>
         <h3 class="feature-card__title">Web Dashboard</h3>
-        <p class="feature-card__text">11 interactive ECharts — placement trends, hero performance, heatmaps, buff analysis, tribe win rates. Filter by mode, game count, date range.</p>
+        <p class="feature-card__text">20 interactive ECharts — placement trends, hero performance, heatmaps, buff analysis, tribe win rates. Filter by mode, game count, date range.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-card__icon">&#128225;</div>
         <h3 class="feature-card__title">Streaming Ready</h3>
-        <p class="feature-card__text">Atomic JSON file output for OBS browser sources and StreamDeck plugins. WebSocket and SSE for live event streaming to any overlay.</p>
+        <p class="feature-card__text">Native Stream Deck plugin with 34 live-stat keys, atomic JSON file output for OBS browser sources, and WebSocket/SSE event streams for any custom overlay.</p>
       </div>
 
       <div class="feature-card">
@@ -117,6 +122,35 @@
       <figure class="screenshot screenshot--wide" data-label="Buff Source Heatmap">
         <img src="images/buff-source-breakdown.png" alt="Buff source breakdown heatmap showing per-game buff distribution" loading="lazy">
       </figure>
+    </div>
+  </section>
+
+  <section class="streamdeck" id="streamdeck">
+    <h2 class="section__title">Live Stats on Your Stream Deck</h2>
+    <div class="streamdeck__layout">
+      <figure class="screenshot screenshot--device" data-label="Stream Deck Plugin">
+        <img src="images/streamdeck-mockup.png" alt="Stream Deck showing live BattleStream keys: health, armor, tier, gold, turn, phase, triples, win streak, minions, tribes, and buff counters" loading="lazy">
+      </figure>
+      <div class="streamdeck__info">
+        <p class="streamdeck__lead">
+          The native Elgato Stream Deck plugin puts your game at a glance — health, gold,
+          tavern tier, streaks, tribes, and every buff counter, refreshed live from the daemon.
+        </p>
+        <ul class="streamdeck__list">
+          <li><strong>34 actions</strong> — core stats, economy counters, opponent intel, and a dedicated key for every buff type.</li>
+          <li><strong>Dyn Buttons</strong> — auto-filling keys that rotate in whichever situational buffs (Beetles, Whelps, Spellcraft&hellip;) are active this game.</li>
+          <li><strong>Ready-made profiles</strong> — layouts for Stream Deck Standard, XL, Mini, and Plus install with the plugin.</li>
+          <li><strong>Offline-aware</strong> — keys flip to an unmistakable <code>&mdash;</code> the moment the tracker is unreachable. No stale numbers on stream.</li>
+        </ul>
+        <ol class="streamdeck__steps">
+          <li>Download <code>battlestream-streamdeck.zip</code> from <a href="https://github.com/beeblebrox/battlestream/releases" target="_blank" rel="noopener">Releases</a>.</li>
+          <li>Unzip and move <code>com.battlestream.streamdeck.sdPlugin</code> into your Stream Deck plugins folder:<br>
+            <code>%appdata%\Elgato\StreamDeck\Plugins\</code> (Windows)<br>
+            <code>~/Library/Application&nbsp;Support/com.elgato.StreamDeck/Plugins/</code> (macOS)</li>
+          <li>Restart the Stream Deck app, then set your tracker host and port once in the plugin's global settings.</li>
+        </ol>
+        <a href="https://github.com/beeblebrox/battlestream/blob/main/docs/2026-05-31-streamdeck-plugin-streamer-guide.md" class="btn btn--small" target="_blank" rel="noopener">Read the Streamer Guide</a>
+      </div>
     </div>
   </section>
 
@@ -204,6 +238,7 @@ open http://localhost:8080/dashboard/</code></pre>
         <a href="https://github.com/beeblebrox/battlestream" target="_blank" rel="noopener">GitHub</a>
         <a href="https://github.com/beeblebrox/battlestream/releases" target="_blank" rel="noopener">Releases</a>
         <a href="https://github.com/beeblebrox/battlestream/blob/main/docs/API.md" target="_blank" rel="noopener">API Docs</a>
+        <a href="https://github.com/beeblebrox/battlestream/blob/main/docs/2026-05-31-streamdeck-plugin-streamer-guide.md" target="_blank" rel="noopener">Stream Deck Guide</a>
       </div>
       <p class="footer__copy">Built for the Battlegrounds community.</p>
     </div>
@@ -228,7 +263,7 @@ open http://localhost:8080/dashboard/</code></pre>
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.feature-card, .screenshot, .install__card, .hero__stat').forEach(el => {
+    document.querySelectorAll('.feature-card, .screenshot, .install__card, .hero__stat, .streamdeck__info').forEach(el => {
       observer.observe(el);
     });
 
